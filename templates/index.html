@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Filmes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Filme</h1>
+
+        <form method="POST">
+            <input type="text" name="título" placeholder="Digite o nome do filme em inglês" required>
+            <button type="submit">Buscar</button>
+        </form>
+
+        {% if erro %}
+            <p class="erro">Erro: {{ erro }}</p>
+        {% endif %}
+
+        {% if dados %}
+            <div class="resultado">
+                <h2>{{ dados['Title'] }} ({{ dados['Year'] }})</h2>
+                <img src="{{ dados['Poster'] }}" alt="Pôster do Filme">
+                <p><strong>Diretor:</strong> {{ dados['Director'] }}</p>
+                <p><strong>Sinopse:</strong> {{ dados['Plot'] }}</p>
+                <p><strong>Nota IMDb:</strong> {{ dados['imdbRating'] }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
