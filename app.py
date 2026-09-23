@@ -19,4 +19,5 @@ resposta = requests.get(url, params=params)
 
 dados = resposta.json()
 
-print(dados)
+for dado in dados:
+    print(f"{dado}: {dados[dado]}")
