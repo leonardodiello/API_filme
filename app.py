@@ -19,5 +19,12 @@ resposta = requests.get(url, params=params)
 
 dados = resposta.json()
 
-for dado in dados:
-    print(f"{dado}: {dados[dado]}")
+if dados.get("Response") == "True":
+    print(f"Título: {dados['Title']}")
+    print(f"Ano: {dados['Year']}")
+    print(f"Diretor: {dados['Director']}")
+    print(f"Sinopse: {dados['Plot']}")
+    print(f"Nota IMDb: {dados['imdbRating']}")
+    print(f"Pôster: {dados['Poster']}")
+else:
+    print(f"Erro: {dados.get('Error', 'Filme não encontrado')}")
