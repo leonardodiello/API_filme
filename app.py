@@ -1,5 +1,6 @@
 import os
 import requests
+from flask import Flask, render_template, request
 
 from dotenv import load_dotenv
 
@@ -7,24 +8,32 @@ load_dotenv()
 
 api=os.getenv("api_key")
 
-titulo = input("Digite o nome do filme que você quer saber mais: ")
+app = Flask(__name__)
 
-url = "http://www.omdbapi.com/"
-params = {
-    "apikey": api,
-    "t": titulo
-}
+@app.route("/", methods=["GET", "POST"])
+def index():
+    dados = None
+    erro = None
 
-resposta = requests.get(url, params=params)
+    if request.method == "POST":
+        titulo = request.form.get("título")
 
-dados = resposta.json()
+        url = "http://www.omdbapi.com/"
+        params = {
+            "apikey": api,
+            "t": titulo
+        }
 
-if dados.get("Response") == "True":
-    print(f"Título: {dados['Title']}")
-    print(f"Ano: {dados['Year']}")
-    print(f"Diretor: {dados['Director']}")
-    print(f"Sinopse: {dados['Plot']}")
-    print(f"Nota IMDb: {dados['imdbRating']}")
-    print(f"Pôster: {dados['Poster']}")
-else:
-    print(f"Erro: {dados.get('Error', 'Filme não encontrado')}")
+        resposta = requests.get(url, params=params)
+        resultado = resposta.json()
+
+        if resultado.get("Response") == "True":
+            dados = resultado
+
+        else:
+            erro = resultado.get("Erro", "Filme não encontrado")
+
+    return render_template("index.html", dados=dados, erro=erro)
+
+if __name__ == "__main__":
+    app.run(debug=True)
