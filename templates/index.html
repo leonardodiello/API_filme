@@ -13,8 +13,10 @@
 
         <form method="POST">
             <p class="dica">Digite o título do filme em inglês.</p>
-            <input type="text" name="titulo" placeholder="Ex: Cars" required>
-            <button type="submit">Buscar</button>
+            <div class="campo-busca">
+                <input type="text" name="titulo" placeholder="Ex: Cars" required>
+                <button type="submit">Buscar</button>
+            </div>
         </form>
 
         {% if erro %}
