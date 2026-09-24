@@ -13,6 +13,15 @@ O usuário informa o título de um filme e a aplicação realiza uma requisiçã
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
 ![python-dotenv](https://img.shields.io/badge/python--dotenv-ECD53F?style=for-the-badge\&logo=python\&logoColor=black)
 ![OMDb API](https://img.shields.io/badge/OMDb%20API-000000?style=for-the-badge)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge\&logo=render\&logoColor=black)
+
+## Aplicação online
+
+A aplicação está disponível para acesso através do Render:
+
+[![Acessar aplicação](https://img.shields.io/badge/Acessar%20Aplicação-API%20de%20Filmes-000000?style=for-the-badge)](https://api-filme-1hka.onrender.com/)
+
+**Acesse:** https://api-filme-1hka.onrender.com/
 
 ## Sobre o projeto
 
@@ -73,6 +82,7 @@ A aplicação utiliza a biblioteca `requests` para realizar a requisição HTTP 
 * Tratamento de filme não encontrado.
 * Interface web com HTML e CSS.
 * Utilização de variável de ambiente para proteger a chave da API.
+* Aplicação publicada na internet através do Render.
 
 ## Estrutura do projeto
 
@@ -152,9 +162,9 @@ A chave é carregada pelo `app.py` através do `python-dotenv`.
 
 **Não compartilhe sua chave da API e não envie o arquivo `.env` para o GitHub.**
 
-O `.gitignore` do projeto já está configurado para ignorar o `.env`.
+O `.gitignore` do projeto deve manter o `.env` fora do versionamento.
 
-## Executando o projeto
+## Executando o projeto localmente
 
 Com o ambiente virtual ativado e o `.env` configurado, execute:
 
@@ -186,6 +196,18 @@ The Batman
 ```
 
 O resultado apresenta as informações retornadas pela API, incluindo título, ano, pôster, diretor, sinopse, nota IMDb e bilheteria.
+
+## Deploy
+
+O projeto foi publicado utilizando o **Render**, permitindo que a aplicação Flask seja acessada diretamente pela internet.
+
+### Aplicação
+
+```text
+https://api-filme-1hka.onrender.com/
+```
+
+O deploy permite testar o projeto sem precisar configurar o ambiente Python localmente.
 
 ## Exemplo de requisição
 
@@ -235,10 +257,11 @@ Este projeto foi desenvolvido para praticar:
 * HTML e CSS.
 * Tratamento básico de erros.
 * Integração entre back-end e front-end.
+* Deploy de aplicação web.
 
 ## Objetivo
 
-O objetivo do projeto é praticar o desenvolvimento de aplicações web com **Python e Flask**, principalmente o consumo de APIs externas, processamento de dados JSON e integração entre back-end e interface web.
+O objetivo do projeto é praticar o desenvolvimento de aplicações web com **Python e Flask**, principalmente o consumo de APIs externas, processamento de dados JSON, integração entre back-end e interface web e publicação de uma aplicação em um ambiente de hospedagem.
 
 ## Autor
 
